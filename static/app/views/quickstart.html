@@ -1,0 +1,31 @@
+<h1>Quick Start</h1>
+
+<div class="alert alert-danger">
+    <strong>Important Note : </strong> arasu development only work on <a href="http://dartlang.org">Dart</a> enabled
+    browsers like dartium or dart enabled chrome browser.
+</div>
+
+<h3>Installation</h3>
+<p>To install the latest stable release with the command-line tool: </p>
+<p>install arasu framework ( assuming you already have <a href="http://golang.org">golang</a> installed )<br/> open
+    terminal</p>
+<code>go get github.com/arasuresearch/arasu</code>
+
+<h3>Creating a New Arasu Project</h3>
+<p>Create a new arasu app:</p>
+<code>arasu new demo</code><br/>
+<code>cd demo</code><br/>
+<code>arasu ds rd generate scaffold User name password age:integer</code><br/>
+<code>arasu ds bd generate scaffold Book title:string content:blob price:decimal</code><br/>
+<code>arasu ds rd migrate</code> // migrate relational database like mysql table<br/>
+<code>arasu ds bd migrate</code> // migrate bigdata like hbase table <br/>
+
+<p>Now start the server:</p>
+<code>arasu server</code>
+
+<p>now visit <a href="http://localhost:4000/">http://localhost:4000/</a> on <a href="https://www.dartlang.org/tools/dartium/">dartium</a> browser. There you are !!!
+    <br/>
+
+    lets dive into <a  ui-sref="guide" >Tutorial</a>
+    <br/>
+</p>

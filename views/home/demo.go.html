@@ -1,0 +1,28 @@
+{{template "/layouts/top"}}
+    <div role="main" class="container">
+      <div class="page-header">
+        <h1>Getting Started</h1>
+      </div>
+<p class="box bg-danger"><strong> Note: </strong>arasu development only work on dart enabled browsers like dartium or dart enabled chrome browser.  </p>
+
+      <h3>Installation</h3>
+      <p>To install the latest stable release with the command-line tool: </p>
+      <code>go get github.com/arasuresearch/arasu</code>
+
+      <h3>Creating a New Sails Project</h3>
+      <p>Create a new app:</p>
+      <code>arasu new demo</code><br/>
+      <code>cd demo</code><br/>
+      <code>arasu ds rd generate scaffold User name password age:integer</code><br/>
+      <code>arasu ds bd generate scaffold Book title:string content:blob price:decimal</code><br/>
+      <code>arasu ds rd migrate</code> // migrate relational database like mysql table<br/>
+      <code>arasu ds bd migrate</code> // migrate bigdata like hbase table <br/>
+      
+      <p>Now start the server:</p>
+      <code>arasu server</code>
+
+      <p>At this point, if you visit (http://localhost:4000/) you will see the default home page. Now, let's get Sails to do cool stuff.
+      </p>
+
+    </div> <!-- /container -->
+{{template "/layouts/bot"}}
