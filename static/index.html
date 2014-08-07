@@ -51,9 +51,11 @@ https://github.com/angular-ui/ui-router/wiki/Quick-Reference
 -->
 </head>
 <body>
+<!--
 <div class="alert alert-danger">
     <strong>Important Note : </strong> this site is under construction ...
 </div>
+-->
 <!--Header-->
 <div id="header">
   <nav class="navbar navbar-default" role="navigation">
@@ -77,7 +79,9 @@ https://github.com/angular-ui/ui-router/wiki/Quick-Reference
         <ul class="nav navbar-nav navbar-right">
 
           <li ng-class="{active: $state.includes('home')}"><a ui-sref="home">Home</a></li>          
+<!--
           <li ng-class="{active: $state.includes('quickstart')}"><a ui-sref="quickstart">Quick Start</a></li>          
+-->
           <li ng-class="{active: $state.includes('guide')}"><a ui-sref="guide">Guide</a></li>
           <li ng-class="{active: $state.includes('contribute')}"><a ui-sref="contribute">Contribute</a></li>
           <li ng-class="{active: $state.includes('examples')}"><a ui-sref="examples">Examples</a></li>
@@ -85,7 +89,7 @@ https://github.com/angular-ui/ui-router/wiki/Quick-Reference
 
 
           <li ng-class="{active: $state.includes('discuss')}" class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <a ui-sref="." class="dropdown-toggle" data-toggle="dropdown">
               Discuss<b class="caret"></b></a>
             <ul class="dropdown-menu">
             <!--
@@ -105,7 +109,7 @@ https://github.com/angular-ui/ui-router/wiki/Quick-Reference
                   Google+</a>
               </li>
               <li>
-                <a href="https://github.com/arasuresearch/arasu.dart">GitHub</a>
+                <a href="https://github.com/arasuresearch/arasu">GitHub</a>
               </li>
               <li>
                 <a href="https://github.com/arasuresearch/arasu/issues">
