@@ -92,26 +92,26 @@
     with Arasu. However, to get the most out of it, you need to have some
     prerequisites installed:</p>
 <ul>
-    <li>The <a href="http://golang.org/doc/install#download">Go</a> language version 1.2.2 or newer.</li>
-    <li>Then <a href="http://golang.org/doc/install#gopath">Set up</a> your go work environment. </li>
-    <li>The <a href="https://www.dartlang.org/">Dart</a> language version 1.4.2 or newer.</li>
-    <li>Then <a href="https://www.dartlang.org/codelabs/darrrt/#set-up">Set up </a> your dart work environment. </li>
-
-    <li>A working installation of the <a href="http://www.sqlite.org/">SQLite3 Database</a>.</li>
+    <li><a href="http://golang.org/doc/install#download">Go</a> language version 1.3 or above.</li>
+    <li><a href="https://www.dartlang.org/">Dart</a> language version 1.5.8 or above.</li>
+    <li>A working installation of <a href="http://www.mysql.com/">Myql Database</a>.</li>
+    <li>A working installation of <a href="http://hbase.apache.org">Hbase  Datastore</a>.</li>
 </ul>
-<p>Arasu is a web application framework running on the Go programming language.
-    If you have no prior experience with Go, you will find a very steep learning
+
+<p>Arasu is a full stack web application framework running on top Go programming language , Dart Programming Language and Angular Dart.
+    If you have no prior experience with Go,Dart,AngularDart, you will find a very steep learning
     curve diving straight into Arasu. There are several curated lists of online resources
-    for learning Go:</p>
+    for learning Go , Dart, AngularDart .</p>
 <ul>
     <li>Official<a href="http://golang.org/doc/"> Go </a>Programming Language website</li>
     <li>Official <a href="https://www.dartlang.org/docs/"> Dart </a>Programming Language website</li>
+    <li>Official <a href="https://www.angulardart.org/"> AngularDart </a>framework website</li>
 </ul>
 
 
 <h3 id="what-is-arasu-questionmark">2 What is Arasu?</h3>
 
-<p>Arasu is a web application development framework written in the Go language.
+<p>Arasu is a web application development framework written on top of Go , Dart and AngularDart.
     It is designed to make programming web applications easier by making assumptions
     about what every developer needs to get started. It allows you to write less
     code while accomplishing more than many other languages and frameworks.
@@ -144,9 +144,9 @@
 <p>The best way to use this guide is to follow each step as it happens, no code or
     step needed to make this example application has been left out, so you can
     literally follow along step by step. You can get the complete code
-    <a href="https://github.com/arasu/docarasu/tree/master/guides/code/getting_started">here</a>.</p>
+    <a href="https://github.com/arasuresearch/arasu/blob/master/README.md">here</a>.</p>
 
-<p>By following along with this guide, you'll create a Arasu project called
+<p>By following along with this guide, you'll create a new Arasu project called
     <code>blog</code>, a
     (very) simple weblog. Before you can start building the application, you need to
     make sure that you have Arasu itself installed.</p>
@@ -154,31 +154,109 @@
 <div class="info"><p>The examples below use <code>$</code> to represent your terminal prompt in a UNIX-like OS,
     though it may have been customized to appear differently. If you are using Windows,
     your prompt will look something like <code>c:\source_code&gt;</code></p></div>
+
+
+
 <h4 id="installing-arasu">3.1 Installing Arasu</h4>
 
-<p>Open up a command line prompt. On Mac OS X open Terminal.app, on Windows choose
+<p>Open up a command  prompt. On Mac OS X open Terminal.app, on Windows choose
     "Run" from your Start menu and type 'cmd.exe'. Any commands prefaced with a
     dollar sign <code>$</code> should be run in the command line. Verify that you have a
     current version of Go installed:</p>
-
+<!--
 <div class="info"><p>A number of tools exist to help you quickly install Go and Go
     on Arasu on your system. Windows users can use <a href="http://arasuinstaller.org">Arasu Installer</a>,
     while Mac OS X users can use <a href="http://arasuoneclick.com">Arasu One Click</a>.</p></div>
-go version go1.2.1 linux/amd64
-<br/>
-<code>$ go version </code><br/>
-<code>go version go1.2.3 linux/amd64 </code><br/>
-<code>$ dart --version </code><br/>
-<code>  Dart VM version: 1.3.6 (Tue Apr 29 12:40:24 2014) on "linux_x64"
-</code>
-<br/>
-<p>If you don't have Go installed have a look at
-    <a href="http://golang.org/doc/install#download">golang.org</a> for possible ways to
-    install Go on your platform.</p>
-<p>If you don't have Dart installed have a look at
-    <a href="https://www.dartlang.org/">dartlang.org</a> for possible ways to
-    install Dart on your platform.</p>
+-->
+<h5 id="installing-arasu">3.1.1 Installing Golang</h5>
 
+        Install <a href="http://golang.org/dl/">Go</a> language, version 1.3 or above.
+        for example Download <a href="http://golang.org/dl/go1.3.linux-amd64.tar.gz"> go1.3.linux-amd64.tar.gz</a> <br>go v-1.3 is the latest version 
+        when i wrote this article.
+        after downloaded, extract "go1.3.linux-amd64.tar.gz" into a directory where you want to install go language.  i used ~/go directory to install go language.
+        create a directory (~/gopackages) to keep non-builtin go packages  
+        </br><code>~$ mkdir ~/gopackages </code></br>
+        </br>
+        add go root directory into system 
+        </br><code>~$ echo 'export GOROOT=$HOME/go' >> ~/.bashrc</code></br>
+        </br>
+        add go packages directory into system 
+        </br><code>~$ echo 'export GOPATH=$HOME/gopackages' >> ~/.bashrc</code></br>
+        </br>
+        add all binary into system PATH 
+        </br><code>~$ echo 'export PATH="$GOROOT/bin:$GOPATH/bin:$PATH"' >> ~/.bashrc</code></br>
+        </br>
+        open a new terminal and verify the sucessfull installation by
+        </br><code>~$ go version </code></br>
+        <code> go version go1.3 linux/amd64 </code></br>
+        if everything is ok then you have sucessfully installed and configured go.
+        <br>
+        <p>If you get any error then have a look at <a href="http://golang.org/doc/install#download">golang.org</a> for possible ways to
+            install and Setup Go language on your specific platform like Windows, Mac.
+        </p>
+<br/>
+<h5 id="installing-arasu">3.1.2 Installing Dartlang</h5>
+        Install <a href="http://dartlang.org">Dart </a> language (Dart SDK), version 1.5.8 or above.
+        for example Download <a href="http://storage.googleapis.com/dart-archive/channels/stable/release/latest/editor/darteditor-linux-x64.zip">darteditor-linux-x64.zip</a> <br>1.5.8 is the latest version, when i wrote this article.
+
+        after downloaded, extract darteditor-linux-x64.zip into a directory where you want to install dart language. i used ~/dart directory to install dart language.
+        </br>
+        add dart binary into system PATH 
+        </br><code>~$ echo 'export PATH="$HOME/dart/dart-sdk/bin:$PATH"' >> ~/.bashrc</code></br>
+        </br>
+        open a new terminal and verify the sucessfull installation by
+        </br><code>~$ dart --version </code></br>
+        <code> Dart VM version: 1.5.8 (Tue Jul 29 07:05:41 2014) on "linux_x64" </code></br>
+        if everything is ok then you have sucessfully installed and configured dart.
+        <br>
+        <p>If you get any error then have a look at <a href="https://www.dartlang.org/">dartlang.org</a> for possible ways to
+            install and Setup dart-sdk on your specific platform like Windows, Mac.
+        </p>
+<br/>
+<h5 id="installing-arasu">3.1.3 Installing Mysql</h5>
+        Install <a href="http://www.mysql.com">Mysql</a> Database.
+        </br>
+        open a terminal and verify the sucessfull mysql database installation by
+        </br><code>~$ mysql --version </code></br>
+        <code> mysql  Ver 14.14 Distrib 5.5.37, for debian-linux-gnu (x86_64) using readline 6.2 </code></br>
+        if everything is ok then you have sucessfully installed mysql.
+        <br>
+        <p>If you get any error then have a look at <a href="www.mysql.com">mysql</a> for possible ways to
+            install mysql database on your specific platform like Windows, Mac.
+        </p>
+<br/>
+<h5 id="installing-arasu">3.1.4 Installing Hbase</h5>
+        Install <a href="http://hbase.apache.org">Hbase </a> stable , version 0.98.4 with hadoop2 or above.
+
+        for example Download <a href="http://apache.petsads.us/hbase/stable/hbase-0.98.4-hadoop2-bin.tar.gz">hbase-0.98.4-hadoop2-bin.tar.gz</a> <br> 0.98.4 is the latest version, when i wrote this article.
+
+        after downloaded, hbase-0.98.4-hadoop2-bin.tar.gz into a directory where you want to install hbase . i used ~/hbase-0.98.4-hadoop2 directory to install hbase.
+        </br>
+        add hbase binary into system PATH 
+        </br><code>~$ echo 'export PATH="$HOME/hbase-0.98.4-hadoop2/bin:$PATH"' >> ~/.bashrc</code></br>
+        </br>
+        open a new terminal and verify the sucessfull installation by
+        </br><code>~$ hbase version </code></br>
+        <code> some valid output </code></br>
+        if everything is ok then you have sucessfully installed and configured hbase.
+        <br>
+        <p>If you get any error then have a look at <a href="http://hbase.apache.org">hbase</a> for possible ways to
+            install and Setup hbase on your specific platform like Windows, Mac.
+        </p>
+<br/>
+
+<h5 id="installing-arasu">3.1.5 Installing Arasu Framework</h5>
+        </br><code>~$ go get github.com/arasuresearch/arasu</code></br>
+        </br>
+        open a new terminal and verify the sucessfull installation by
+        </br><code>~$ arasu --version </code></br>
+        <code> 0.0.1 </code></br>
+        if everything is ok then you have sucessfully installed arasu.
+        <br>
+        <p>If you get any error then have a look at <a href="github.com/arasuresearch/arasu">arasu</a> Readme for specific solution.
+        </p>
+<br/>
+<!--
 <p>Many popular UNIX-like OSes ship with an acceptable version of SQLite3. Windows
     users and others can find installation instructions at <a href="http://www.sqlite.org">the SQLite3 website</a>.
     Verify that it is correctly installed and in your PATH:</p>
@@ -187,42 +265,32 @@ go version go1.2.1 linux/amd64
 <code> $ sqlite3 --version </code>
 </div>
 <p>The program should report its version.</p>
+-->
 
-<p>To install Arasu, use the <code>gem install</code> command provided by GoGems:</p>
 
-<code >$ gem install arasu</code>
 
-<p>To verify that you have everything installed correctly, you should be able to
-    run the following:</p>
-<code>$ arasu --version</code>
 
-<p>If it says something like "Arasu 4.1.0", you are ready to continue.</p>
 <h4 id="creating-the-blog-application">3.2 Creating the Blog Application</h4>
 
-<p>Arasu comes with a number of scripts called generators that are designed to make
-    your development life easier by creating everything that's necessary to start
-    working on a particular task. One of these is the new application generator,
-    which will provide you with the foundation of a fresh Arasu application so that
-    you don't have to write it yourself.</p>
+<p>Arasu comes with a number of scripts called generators that are designed to make your development life easier by creating everything that's necessary to start working on a particular task. One of these is the new application generator, which will provide you with the foundation of a fresh Arasu application so that you don't have to write it yourself.</p>
 
-<p>To use this generator, open a terminal, navigate to a directory where you have
-    rights to create files, and type:</p>
+<p>To use this generator, open a terminal, navigate to a directory where you have rights to create files, and type:</p>
 
 <code>$ arasu new blog</code>
 
-<p>This will create a Arasu application called Blog in a <code>blog</code> directory and
+<p>This will create a Arasu application called Blog in a <code>blog</code> directory </p>
+<!--
+<p> and
     install the gem dependencies that are already mentioned in <code>Gemfile</code> using
     <code>bundle install</code>.</p>
+-->
 
-<div class="info"><p>You can see all of the command line options that the Arasu application
-    builder accepts by running <code>arasu new -h</code>.</p></div>
+<div class="info"><p>You can see all of the command line options that the Arasu application builder accepts by running <code>arasu new -h</code>.</p></div>
 <p>After you create the blog application, switch to its folder:</p>
-
 <code>$ cd blog</code>
-
 <p>The <code>blog</code> directory has a number of auto-generated files and folders that make
     up the structure of a Arasu application. Most of the work in this tutorial will
-    happen in the <code>app</code> folder, but here's a basic rundown on the function of each
+    happen in the <code>src/server</code> & <code>src/client</code> folder, but here's a basic rundown on the function of each
     of the files and folders that Arasu created by default:</p>
 <table class="responsive">
     <thead>
@@ -233,76 +301,76 @@ go version go1.2.1 linux/amd64
     </thead>
     <tbody>
     <tr>
-        <td>app/</td>
-        <td>Contains the controllers, models, views, helpers, mailers and assets for your application. You'll focus on
-            this folder for the remainder of this guide.
+        <td>src/server/</td>
+        <td>Contains the Server Side Controllers, Models, Routes, helpers, Dispatchers for your application. You'll focus on
+            this folder along with <code>src/client/</code> for the remainder of this guide.
         </td>
     </tr>
     <tr>
-        <td>bin/</td>
-        <td>Contains the arasu script that starts your app and can contain other scripts you use to deploy or run your
-            application.
+        <td>src/client/</td>
+        <td>Contains the Client Dart/Angular Application,Modules,Controllers,Components,Filters,Models, Templates and assets for your clientside application. You'll focus on this folder along with <code>src/server/</code> for the remainder of this guide.
         </td>
     </tr>
     <tr>
-        <td>config/</td>
-        <td>Configure your application's routes, database, and more. This is covered in more detail in <a
+        <td>bin/ & pkg/</td>
+        <td>You no need to worry about these two folders because Go runtime will take care of it.
+        if you want more details then read <a href="http://golang.org/doc/">Golang Doc</a>
+        </td>
+    </tr>
+
+    <tr>
+        <td>src/config/</td>
+        <td>Configure your application's properties like datastore configuration ,session cnfiguration, and more. This is covered in more detail in <a
                 href="configuring.html">Configuring Arasu Applications</a>.
         </td>
     </tr>
     <tr>
-        <td>config.ru</td>
-        <td>Rack configuration for Rack based servers used to start the application.</td>
-    </tr>
-    <tr>
-        <td>db/</td>
-        <td>Contains your current database schema, as well as the database migrations.</td>
-    </tr>
-    <tr>
-        <td>Gemfile<br>Gemfile.lock</td>
-        <td>These files allow you to specify what gem dependencies are needed for your Arasu application. These files
-            are used by the Bundler gem. For more information about Bundler, see <a href="http://gembundler.com">the
-                Bundler website</a>.
+        <td>src/db/</td>
+        <td>Contains your current database schema, as well as the database migrations. This is covered in more detail in <a
+                href="dstore.html">Datastore Configuration of Arasu Applications</a>.
         </td>
     </tr>
     <tr>
-        <td>lib/</td>
-        <td>Extended modules for your application.</td>
+        <td>src/boot/</td>
+        <td>this is the main place where the arasu app will get started.you can initialize all other dependencies here.</td>
     </tr>
     <tr>
-        <td>log/</td>
-        <td>Application log files.</td>
+        <td>/src/client/pubspec.yaml & pubspec.lock</td>
+        <td>These files allow you to specify what dart pub dependencies are needed for your Arasu application.These files are used by the dart pub tool. For more information about pub, see the <a href="pub.dartlang.org">pub</a> website.  </td>
     </tr>
     <tr>
-        <td>public/</td>
-        <td>The only folder seen by the world as-is. Contains static files and compiled assets.</td>
+        <td>/src/client/web/</td>
+        <td>The only folder seen by the world as-is. Contains static files and compiled dart & js assets.</td>
     </tr>
     <tr>
-        <td>Rakefile</td>
-        <td>This file locates and loads tasks that can be run from the command line. The task definitions are defined
-            throughout the components of Arasu. Rather than changing Rakefile, you should add your own tasks by adding
-            files to the lib/tasks directory of your application.
+        <td>/src/client/lib/</td>
+        <td>all Angular Dart related packages will be put up here.
+            like all controllers,models,modules,views,components,filters,directives,services, and more respectively in the path of /src/client/lib/* .
         </td>
     </tr>
     <tr>
-        <td>README.rdoc</td>
+        <td>/src/tmp/arasu/*</td>
+        <td>This file locates and loads packages that can be run from the command line. The packages definitions are defined
+            throughout the combined packages of Arasu Framework and Arasu App . Rather than changing this, you should add your own packges by adding files to the lib/pkg directory of your application.
+        </td>
+    </tr>
+    <tr>
+        <td>README.md</td>
         <td>This is a brief instruction manual for your application. You should edit this file to tell others what your
             application does, how to set it up, and so on.
         </td>
     </tr>
     <tr>
-        <td>test/</td>
-        <td>Unit tests, fixtures, and other test apparatus. These are covered in <a href="testing.html">Testing Arasu
-            Applications</a>.
-        </td>
+        <td>/src/tmp/</td>
+        <td>Temporary files ,like arasu commands, dispatchers, cache, pid, and session files.</td>
     </tr>
     <tr>
-        <td>tmp/</td>
-        <td>Temporary files (like cache, pid, and session files).</td>
+        <td>src/lib/</td>
+        <td>Extended packages for your application.</td>
     </tr>
     <tr>
-        <td>vendor/</td>
-        <td>A place for all third-party code. In a typical Arasu application this includes vendored gems.</td>
+        <td>src/log/</td>
+        <td>Application log files.</td>
     </tr>
     </tbody>
 </table>
@@ -316,19 +384,16 @@ go version go1.2.1 linux/amd64
     start a web server on your development machine. You can do this by running the
     following in the <code>blog</code> directory:</p>
 
-<code>$ arasu server</code>
+<code>~$ arasu serve</code>
 
-<div class="info"><p>Compiling CoffeeScript to JavaScript requires a JavaScript runtime and the
-    absence of a runtime will give you an <code>execjs</code> error. Usually Mac OS X and
-    Windows come with a JavaScript runtime installed. Arasu adds the <code>thegoracer</code>
-    gem to the generated <code>Gemfile</code> in a commented line for new apps and you can
-    uncomment if you need it. <code>thegorhino</code> is the recommended runtime for JGo
-    users and is added by default to the <code>Gemfile</code> in apps generated under JGo.
-    You can investigate about all the supported runtimes at
-    <a href="https://github.com/sstephenson/execjs#readme">ExecJS</a>.</p></div>
-<p>This will fire up WEBrick, a web server distributed with Go by default. To see
-    your application in action, open a browser window and navigate to
-    <a href="http://localhost:3000">http://localhost:3000</a>. You should see the Arasu default information page:</p>
+<div class="info"><p>
+    you will get output like "You don't have a lockfile, so we need to generate that:" by Dart Pub Manager ,
+    this will pull all of your client dependencies .
+    this will take few more seconds .this will occur only at first time for an arasu application.
+  </p></div>
+
+<p>This will fire up Go net/http server, a web server distributed with Go by default. To see  your application in action, open dartium browser window and navigate to
+    <a href="http://localhost:4000">http://localhost:4000</a>. You should see the Arasu default information page:</p>
 
 <p><img src="images/getting_started/arasu_welcome.png" alt="Welcome aboard screenshot"></p>
 
@@ -350,15 +415,15 @@ go version go1.2.1 linux/amd64
 <p>A controller's purpose is to receive specific requests for the application.
     <em>Routing</em> decides which controller receives which requests. Often, there is more
     than one route to each controller, and different routes can be served by
-    different <em>actions</em>. Each action's purpose is to collect information to provide
-    it to a view.</p>
+    different <em>actions</em>. Each action's purpose is to collect information and serve to client as json or provide
+    it to a json view and serve the json output.</p>
 
-<p>A view's purpose is to display this information in a human readable format. An
+<p>A json view's purpose is to display this information in a json readable format. An
     important distinction to make is that it is the <em>controller</em>, not the view,
     where information is collected. The view should just display that information.
-    By default, view templates are written in a language called eGo (Embedded
+    By default, view templates are written in a language called Go Template (Embedded
     Go) which is processed by the request cycle in Arasu before being sent to the
-    user.</p>
+    client.</p>
 
 <p>To create a new controller, you will need to run the "controller" generator and
     tell it you want a controller called "welcome" with an action called "index",
@@ -382,7 +447,7 @@ go version go1.2.1 linux/amd64
         </div>
     </div>
 </div>
-<p>Arasu will create several files and a route for you.</p>
+<p>Arasu will create several files and a route file for you.</p>
 
 <div class="code_container">
     <div>
@@ -393,7 +458,10 @@ go version go1.2.1 linux/amd64
                     <td class="code">
                         <div class="container">
                             <div class="line number1 index0 alt2"><code class="plain plain">create&nbsp;
-                                app/controllers/welcome_controller.rb</code></div>
+                                src/server/controllers/welcomes/main.go</code></div>
+                            <div class="line number1 index0 alt2"><code class="plain plain">create&nbsp;
+                                src/server/routes/welcomes.go</code></div>
+
                             <div class="line number2 index1 alt1"><code class="plain spaces">&nbsp;</code><code
                                     class="plain plain">route&nbsp; get 'welcome/index'</code></div>
                             <div class="line number3 index2 alt2"><code class="plain plain">invoke&nbsp; erb</code>
